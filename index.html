@@ -1,0 +1,367 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>For Maheen 🫀</title>  <style>  
+*{  
+    margin:0;  
+    padding:0;  
+    box-sizing:border-box;  
+    font-family:'Segoe UI',sans-serif;  
+}  
+  
+html, body{  
+    height:100%;  
+    overflow:hidden;  
+}  
+  
+body{  
+    background:radial-gradient(circle at top,#ff6b9d,#f093fb,#f5576c,#4facfe);  
+    background-size:400% 400%;  
+    animation:sparkle 4s ease-in-out infinite;  
+    display:flex;  
+    align-items:center;  
+    justify-content:center;  
+    color:#2d0016;  
+    animation:heartbeatBody 2s infinite;  
+}  
+  
+@keyframes sparkle{  
+    0%,100%{background-position:0% 50%;}  
+    50%{background-position:100% 50%;}  
+}  
+  
+@keyframes heartbeatBody{  
+    0%,100%{transform:scale(1);}  
+    50%{transform:scale(1.01);}  
+}  
+  
+/* Pages */  
+.page{  
+    display:none;  
+    text-align:center;  
+    padding:24px;  
+    max-width:720px;  
+    animation:slideIn 0.8s ease-out;  
+    position:relative;  
+}  
+  
+.page.active{display:block;}  
+  
+.page.leaving{  
+    animation:slideOut 0.5s ease-in;  
+}  
+  
+@keyframes slideIn{  
+    from{transform:translateX(100%); opacity:0;}  
+    to{transform:translateX(0); opacity:1;}  
+}  
+  
+@keyframes slideOut{  
+    from{transform:translateX(0); opacity:1;}  
+    to{transform:translateX(-100%); opacity:0;}  
+}  
+  
+h1{margin-bottom:14px; font-weight:800;}  
+p{font-size:1.1rem; line-height:1.9; font-weight:500;}  
+  
+/* Responsive font sizes */  
+@media (max-width: 600px) {  
+    h1 { font-size: 1.8rem; }  
+    p { font-size: 1rem; }  
+    .glow { font-size: 1.8rem; }  
+}  
+  
+/* Glow Name */  
+.glow{  
+    font-size:2.4rem;  
+    font-weight:900;  
+    color:#d1003a;  
+    text-shadow:0 0 15px #ff6b9d,0 0 30px #f5576c,0 0 45px #ff9fb6;  
+    animation:glowPulse 1.5s infinite alternate;  
+}  
+  
+@keyframes glowPulse{  
+    0%{text-shadow:0 0 10px #ff6b9d; transform:scale(1);}  
+    50%{text-shadow:0 0 20px #f5576c; transform:scale(1.05);}  
+    100%{text-shadow:0 0 30px #ff9fb6; transform:scale(1.1);}  
+}  
+  
+/* Heartbeat */  
+.heartbeat{  
+    animation:beatBounce 1.4s infinite;  
+}  
+@keyframes beatBounce{  
+    0%,100%{transform:scale(1);}  
+    25%{transform:scale(1.02) rotate(-1deg);}  
+    50%{transform:scale(1.06);}  
+    75%{transform:scale(1.02) rotate(1deg);}  
+}  
+  
+/* Next Button - Enhanced */  
+button{  
+    position:fixed;  
+    bottom:calc(25px + env(safe-area-inset-bottom));  
+    left:50%;  
+    transform:translateX(-50%);  
+    background:linear-gradient(45deg,#ff476f,#ff9fb6);  
+    border:none;  
+    padding:18px 24px;  
+    border-radius:50%;  
+    font-size:1.6rem;  
+    color:white;  
+    cursor:pointer;  
+    box-shadow:0 8px 20px rgba(255,71,111,0.4);  
+    z-index:999;  
+    animation:beatBtn 1.2s infinite;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+button:hover{  
+    transform:translateX(-50%) scale(1.2) rotate(5deg);  
+    box-shadow:0 12px 30px rgba(255,71,111,0.6);  
+    animation:wiggle 0.5s ease-in-out;  
+}  
+@keyframes beatBtn{  
+    0%,100%{transform:translateX(-50%) scale(1);}  
+    50%{transform:translateX(-50%) scale(1.25);}  
+}  
+@keyframes wiggle{  
+    0%,100%{transform:translateX(-50%) scale(1.2) rotate(0deg);}  
+    25%{transform:translateX(-50%) scale(1.2) rotate(-3deg);}  
+    75%{transform:translateX(-50%) scale(1.2) rotate(3deg);}  
+}  
+  
+/* Restart Button */  
+#restartBtn {  
+    display: none;  
+    margin-top: 20px;  
+    background: linear-gradient(45deg,#ff476f,#ff9fb6);  
+    color: white;  
+    border: none;  
+    padding: 12px 24px;  
+    border-radius: 25px;  
+    cursor: pointer;  
+    font-size: 1.1rem;  
+    box-shadow: 0 6px 15px rgba(255,71,111,0.4);  
+    transition: transform 0.3s, box-shadow 0.3s;  
+}  
+#restartBtn:hover {  
+    transform: scale(1.1);  
+    box-shadow: 0 10px 25px rgba(255,71,111,0.6);  
+}  
+  
+/* Floating Roses - Enhanced */  
+.rose{  
+    position:absolute;  
+    top:-50px;  
+    font-size:24px;  
+    animation:fallSway linear infinite;  
+    opacity:0.9;  
+}  
+@keyframes fallSway{  
+    0%{transform:translateY(0) rotate(0deg);}  
+    50%{transform:translateY(50vh) rotate(180deg) translateX(10px);}  
+    100%{transform:translateY(110vh) rotate(360deg) translateX(-10px);}  
+}  
+  
+/* Typewriter */  
+.type span{  
+    opacity:0;  
+    animation:appear 0.04s forwards;  
+}  
+@keyframes appear{  
+    to{opacity:1;}  
+}  
+  
+/* Confetti Canvas */  
+#confettiCanvas{  
+    position:fixed;  
+    top:0;  
+    left:0;  
+    width:100%;  
+    height:100%;  
+    pointer-events:none;  
+    z-index:1000;  
+}  
+</style>  </head>  <body>  <!-- Music -->  <audio id="bg" loop>  
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_efc8d6fdc5.mp3" type="audio/mpeg">  
+  Your browser does not support the audio element.  
+</audio>  <!-- Confetti Canvas -->  <canvas id="confettiCanvas"></canvas>
+
+<!-- Pages -->  <div class="page active">  
+<h1>Happy Rose Day 🌹💖</h1>  
+<p class="type">Ye sirf ek rose nahi, ye wo feeling hai jo dil ke andar 🫀 chup chaap grow hui 🎀    
+Tumhari ek smile meri saari thakaan utaar deti hai 😚    
+Kabhi hassi 😭 kabhi silence 🤍 par har pal tum hi ho 💋</p>  
+</div>  <div class="page">  
+<h1>Us & Our Journey 🌷✨</h1>  
+<p class="type">Perfect nahi par real 🫶    
+Har baat ke baad tumhari kami mehsoos hoti hai 🤌    
+Mujhe moments nahi, tum chahiye 🌹 har version ke saath 🌺</p>  
+</div>  <div class="page">  
+<h1>Almost One Year 💐🥳</h1>  
+<p class="type">Our relationship is turning one year in almost three months 🥹    
+Aur pyaar kam nahi hua 🤍 balkay aur gehra ho gaya    
+Tum meri comfort bhi ho aur meri strength bhi 😚</p>  
+</div>  <div class="page">  
+<h1 class="heartbeat">How Much I Love You 🌸💕</h1>  
+<p class="heartbeat">Jitna suraj ko aasman 🌻    
+Jitni saanson ko dhadkan 🫀    
+Jitni raat ko chaand 🤍    
+Jitna zakhm ko marham ❤️‍🩹    
+Usse bhi zyada…</p>  
+<br>  
+<div class="glow heartbeat">Maheen 🫀</div>  
+<p>tum meri aadat bhi ho aur meri dua bhi 😚    
+Bas itna hi nahi… tum meri choice ho, har roz 🫶</p>  
+<button id="restartBtn" onclick="restart()">Restart 💖</button>  
+</div>  <!-- Next Button -->  <button id="btn" onclick="nextPage()">👉</button>
+
+<script>  
+// Variables  
+let pages = document.querySelectorAll('.page');  
+let btn = document.getElementById('btn');  
+let restartBtn = document.getElementById('restartBtn');  
+let bg = document.getElementById('bg');  
+let canvas = document.getElementById('confettiCanvas');  
+let ctx = canvas.getContext('2d');  
+let i = 0, played = false;  
+let confettiParticles = [];  
+  
+// Resize canvas  
+function resizeCanvas() {  
+    canvas.width = window.innerWidth;  
+    canvas.height = window.innerHeight;  
+}  
+resizeCanvas();  
+window.addEventListener('resize', resizeCanvas);  
+  
+// Confetti particle class  
+class Particle {  
+    constructor() {  
+        this.x = Math.random() * canvas.width;  
+        this.y = -10;  
+        this.size = Math.random() * 8 + 4;  
+        this.speedY = Math.random() * 3 + 1;  
+        this.speedX = Math.random() * 2 - 1;  
+        this.color = ['#ff476f', '#ff9fb6', '#f5576c', '#ffd700'][Math.floor(Math.random() * 4)];  
+        this.shape = Math.random() > 0.5 ? 'heart' : 'circle'; // Mix hearts and circles  
+    }  
+    update() {  
+        this.y += this.speedY;  
+        this.x += this.speedX;  
+        if (this.y > canvas.height) this.y = -10;  
+    }  
+    draw() {  
+        ctx.fillStyle = this.color;  
+        if (this.shape === 'heart') {  
+            // Simple heart shape  
+            ctx.beginPath();  
+            ctx.arc(this.x - this.size/2, this.y, this.size/2, 0, Math.PI * 2);  
+            ctx.arc(this.x + this.size/2, this.y, this.size/2, 0, Math.PI * 2);  
+            ctx.fillRect(this.x - this.size/2, this.y, this.size, this.size/2);  
+            ctx.fill();  
+        } else {  
+            ctx.beginPath();  
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);  
+            ctx.fill();  
+        }  
+    }  
+}  
+  
+// Create confetti  
+function createConfetti() {  
+    for (let j = 0; j < 50; j++) {  
+        confettiParticles.push(new Particle());  
+    }  
+}  
+  
+// Animate confetti  
+function animateConfetti() {  
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  
+    confettiParticles.forEach(p => {  
+        p.update();  
+        p.draw();  
+    });  
+    requestAnimationFrame(animateConfetti);  
+}  
+  
+// Next page function  
+function nextPage() {  
+    pages[i].classList.add('leaving');  
+    setTimeout(() => {  
+        pages[i].classList.remove('active', 'leaving');  
+        i++;  
+        if (i >= pages.length) { i = pages.length - 1; }  
+        pages[i].classList.add('active');  
+  
+        // Play music  
+        if (!played) {  
+            bg.volume = 0.18;  
+            bg.play().catch(e => console.log('Audio play failed:', e));  
+            played = true;  
+        }  
+  
+        // On last page, hide next, show restart, start confetti  
+        if (i === pages.length - 1) {  
+            btn.style.opacity = "0";  
+            btn.style.pointerEvents = "none";  
+            restartBtn.style.display = "inline-block";  
+            createConfetti();  
+            animateConfetti();  
+        }  
+    }, 500);  
+}  
+  
+// Restart function  
+function restart() {  
+    pages[i].classList.add('leaving');  
+    setTimeout(() => {  
+        pages[i].classList.remove('active', 'leaving');  
+        i = 0;  
+        pages[i].classList.add('active');  
+        btn.style.opacity = "1";  
+        btn.style.pointerEvents = "auto";  
+        restartBtn.style.display = "none";  
+        bg.pause();  
+        bg.currentTime = 0;  
+        played = false;  
+        confettiParticles = []; // Clear confetti  
+        ctx.clearRect(0, 0, canvas.width, canvas.height);  
+        createConfetti(); // Restart confetti  
+        animateConfetti();  
+    }, 500);  
+}  
+  
+// Floating Roses  
+const roses = ["🌹", "🌷", "🌺", "🌻", "🌸", "💐", "💖"];  
+for (let r = 0; r < 21; r++) {  // Reduced from 30 to 21 (70% of original)  
+    let d = document.createElement("div");  
+    d.className = "rose";  
+    d.innerText = roses[Math.floor(Math.random() * roses.length)];  
+    d.style.left = Math.random() * 100 + "vw";  
+    d.style.animationDuration = 5 + Math.random() * 8 + "s";  
+    d.style.fontSize = 20 + Math.random() * 25 + "px";  
+    document.body.appendChild(d);  
+}  
+  
+// Typewriter effect  
+document.querySelectorAll('.type').forEach(el => {  
+    let text = el.innerHTML;  
+    el.innerHTML = "";  
+    [...text].forEach((ch, idx) => {  
+        let s = document.createElement("span");  
+        s.textContent = ch;  
+        s.style.animationDelay = (idx * 0.03) + "s";  
+        el.appendChild(s);  
+    });  
+});  
+  
+// Fix Mobile Viewport Height  
+function setVh() {  
+    document.body.style.height = window.innerHeight + 'px';  
+}  
+window.addEventListener('resize', setVh);  
+setVh();  
+</script>  </body>  
+</html>  
